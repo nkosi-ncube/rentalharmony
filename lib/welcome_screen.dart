@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,13 +10,13 @@ class WelcomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(
+            const Icon(
               Icons.home,
               size: 100,
               color: Colors.deepPurple,
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Welcome to Rental Harmony',
               style: TextStyle(
                 fontSize: 24,
@@ -24,7 +24,7 @@ class WelcomeScreen extends StatelessWidget {
                 color: Colors.deepPurple,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               'Your login was successful!',
               style: TextStyle(
