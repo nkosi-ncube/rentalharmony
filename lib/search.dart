@@ -4,6 +4,8 @@ import 'filter.dart';
 import 'detail.dart';
 
 class Search extends StatefulWidget {
+  const Search({super.key});
+
   @override
   _SearchState createState() => _SearchState();
 }
@@ -19,9 +21,9 @@ class _SearchState extends State<Search> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 48, left: 24, right: 24, bottom: 16),
+            padding: const EdgeInsets.only(top: 48, left: 24, right: 24, bottom: 16),
             child: TextField(
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 28,
                 height: 1,
                 color: Colors.black, // Non-nullable Color
@@ -43,7 +45,7 @@ class _SearchState extends State<Search> {
                   borderSide: BorderSide(color: Colors.grey[400]!), // Non-nullable Color
                 ),
                 suffixIcon: Padding(
-                  padding: EdgeInsets.only(left: 16),
+                  padding: const EdgeInsets.only(left: 16),
                   child: Icon(
                     Icons.search,
                     color: Colors.grey[400], // Non-nullable Color
@@ -54,27 +56,27 @@ class _SearchState extends State<Search> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 16),
+            padding: const EdgeInsets.only(top: 16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
-                  child: Container(
+                  child: SizedBox(
                     height: 32,
                     child: Stack(
                       children: [
                         ListView(
-                          physics: BouncingScrollPhysics(),
+                          physics: const BouncingScrollPhysics(),
                           scrollDirection: Axis.horizontal,
                           children: [
-                            SizedBox(width: 24),
+                            const SizedBox(width: 24),
                             buildFilter("House"),
                             buildFilter("Price"),
                             buildFilter("Security"),
                             buildFilter("Bedrooms"),
                             buildFilter("Garage"),
                             buildFilter("Swimming Pool"),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                           ],
                         ),
                         Align(
@@ -86,9 +88,9 @@ class _SearchState extends State<Search> {
                                 begin: Alignment.centerRight,
                                 end: Alignment.centerLeft,
                                 colors: [
-                                  Theme.of(context).scaffoldBackgroundColor!,
+                                  Theme.of(context).scaffoldBackgroundColor,
                                   Theme.of(context)
-                                      .scaffoldBackgroundColor!
+                                      .scaffoldBackgroundColor
                                       .withOpacity(0.0),
                                 ],
                               ),
@@ -103,7 +105,7 @@ class _SearchState extends State<Search> {
                   onTap: () {
                     _showBottomSheet();
                   },
-                  child: Padding(
+                  child: const Padding(
                     padding: EdgeInsets.only(left: 16, right: 24),
                     child: Text(
                       "Filters",
@@ -117,7 +119,7 @@ class _SearchState extends State<Search> {
               ],
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(right: 24, left: 24, top: 24, bottom: 12),
             child: Row(
               children: [
@@ -140,9 +142,9 @@ class _SearchState extends State<Search> {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 24),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               child: ListView(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.vertical,
                 children: buildProperties(),
               ),
@@ -155,10 +157,10 @@ class _SearchState extends State<Search> {
 
   Widget buildFilter(String filterName) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12),
-      margin: EdgeInsets.only(right: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      margin: const EdgeInsets.only(right: 12),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(5),
         ),
         border: Border.all(
@@ -169,7 +171,7 @@ class _SearchState extends State<Search> {
       child: Center(
         child: Text(
           filterName,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
@@ -183,7 +185,7 @@ class _SearchState extends State<Search> {
     for (var i = 0; i < properties.length; i++) {
       list.add(
         Hero(
-          tag: properties[i].frontImage!,
+          tag: properties[i].frontImage,
           child: buildProperty(properties[i], i),
         ),
       );
@@ -200,9 +202,9 @@ class _SearchState extends State<Search> {
         );
       },
       child: Card(
-        margin: EdgeInsets.only(bottom: 24),
+        margin: const EdgeInsets.only(bottom: 24),
         clipBehavior: Clip.antiAlias,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(15),
           ),
@@ -211,12 +213,12 @@ class _SearchState extends State<Search> {
           height: 210,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(property.frontImage!),
+              image: AssetImage(property.frontImage),
               fit: BoxFit.cover,
             ),
           ),
           child: Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
@@ -233,18 +235,18 @@ class _SearchState extends State<Search> {
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.yellow[700],
-                    borderRadius: BorderRadius.all(
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(5),
                     ),
                   ),
                   width: 80,
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     vertical: 4,
                   ),
                   child: Center(
                     child: Text(
-                      "FOR " + property.label!,
-                      style: TextStyle(
+                      "FOR ${property.label}",
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -261,16 +263,16 @@ class _SearchState extends State<Search> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          property.name!,
-                          style: TextStyle(
+                          property.name,
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         Text(
-                          r"$" + property.price!,
-                          style: TextStyle(
+                          r"$" + property.price,
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -278,35 +280,35 @@ class _SearchState extends State<Search> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.location_on,
                               color: Colors.white,
                               size: 14,
                             ),
-                            SizedBox(width: 4),
+                            const SizedBox(width: 4),
                             Text(
-                              property.location!,
-                              style: TextStyle(
+                              property.location,
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 14,
                               ),
                             ),
-                            SizedBox(width: 8),
-                            Icon(
+                            const SizedBox(width: 8),
+                            const Icon(
                               Icons.zoom_out_map,
                               color: Colors.white,
                               size: 16,
                             ),
-                            SizedBox(width: 4),
+                            const SizedBox(width: 4),
                             Text(
-                              property.sqm! + " sq/m",
-                              style: TextStyle(
+                              "${property.sqm} sq/m",
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 14,
                               ),
@@ -320,10 +322,10 @@ class _SearchState extends State<Search> {
                               color: Colors.yellow[700],
                               size: 14,
                             ),
-                            SizedBox(width: 4),
+                            const SizedBox(width: 4),
                             Text(
-                              property.review! + " Reviews",
-                              style: TextStyle(
+                              "${property.review} Reviews",
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 14,
                               ),
@@ -346,14 +348,14 @@ class _SearchState extends State<Search> {
     showModalBottomSheet(
         context: context,
         isScrollControlled: true,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),
           ),
         ),
         builder: (BuildContext context) {
-          return Wrap(
+          return const Wrap(
             children: [
               Filter(),
             ],
@@ -363,7 +365,7 @@ class _SearchState extends State<Search> {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: Search(),
   ));
 }

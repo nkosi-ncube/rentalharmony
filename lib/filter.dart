@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 
 class Filter extends StatefulWidget {
+  const Filter({super.key});
+
   @override
   _FilterState createState() => _FilterState();
 }
 
 class _FilterState extends State<Filter> {
 
-  var selectedRange = RangeValues(400, 1000);
+  var selectedRange = const RangeValues(400, 1000);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(right: 24, left: 24, top: 32, bottom: 24),
+      padding: const EdgeInsets.only(right: 24, left: 24, top: 32, bottom: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 
-          Row(
+          const Row(
             children: [
 
               Text(
@@ -42,11 +44,11 @@ class _FilterState extends State<Filter> {
             ],
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 32,
           ),
 
-          Row(
+          const Row(
             children: [
 
               Text(
@@ -84,7 +86,7 @@ class _FilterState extends State<Filter> {
             inactiveColor: Colors.grey[300],
           ),
 
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
 
@@ -105,11 +107,11 @@ class _FilterState extends State<Filter> {
             ],
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
 
-          Text(
+          const Text(
             "Rooms",
             style: TextStyle(
               fontSize: 24,
@@ -117,7 +119,7 @@ class _FilterState extends State<Filter> {
             ),
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
 
@@ -133,11 +135,11 @@ class _FilterState extends State<Filter> {
             ],
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
 
-          Text(
+          const Text(
             "Bathrooms",
             style: TextStyle(
               fontSize: 24,
@@ -145,7 +147,7 @@ class _FilterState extends State<Filter> {
             ),
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
 
@@ -172,7 +174,7 @@ class _FilterState extends State<Filter> {
       width: 65,
       decoration: BoxDecoration(
         color: selected ? Colors.blue[900] : Colors.transparent,
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(5),
         ),
         border: Border.all(

@@ -15,12 +15,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   // ignore: unused_field
   final bool _confirmPasswordVisible = false;
 
-  TextEditingController _fullNameController = TextEditingController();
-  TextEditingController _surnameController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _idNumberController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _surnameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _idNumberController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

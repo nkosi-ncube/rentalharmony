@@ -4,15 +4,15 @@ import 'create_account_screen.dart';
 
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController _phoneNumberController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   // Dummy credentials
   final String _dummyPhoneNumber = "0699327937";
@@ -28,11 +28,11 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             Container(
               height: 400,
               width: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/background.jpg'),
                   fit: BoxFit.fill,
@@ -46,18 +46,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Container(
                       width: 120,
                       height: 120,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF44336), // Red color
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFF44336), // Red color
                         shape: BoxShape.circle,
                       ),
-                      child: Icon(
+                      child: const Icon(
                         Icons.home,
                         color: Colors.black,
                         size: 60,
                       ),
                     ),
                   ),
-                  Positioned(
+                  const Positioned(
                     bottom: 20,
                     child: Text(
                       "Login",
@@ -71,9 +71,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               width: screenWidth * 0.6, // Width set to 60% of the screen width
               decoration: BoxDecoration(
                 color: Colors.black, // Dark background for the form
@@ -86,61 +86,61 @@ class _LoginScreenState extends State<LoginScreen> {
                     label: "NAME",
                     hintText: "John Doe",
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   _buildInputField(
                     label: "PHONENUMBER",
                     hintText: "123-456-7890",
                     controller: _phoneNumberController,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   _buildInputField(
                     label: "PASSWORD",
                     hintText: "********",
                     controller: _passwordController,
                     obscureText: true,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
                       _login(); // Call login method
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFF44336), // Red color
-                      padding: EdgeInsets.symmetric(vertical: 15.0),
+                      padding: const EdgeInsets.symmetric(vertical: 15.0),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                     ),
-                    child: Text(
+                    child: const Text(
                       "Login",
                       style: TextStyle(fontSize: 18.0),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   GestureDetector(
                     onTap: () {
                       // Add functionality for Forgot Password
                     },
-                    child: Text(
+                    child: const Text(
                       "Forgot Password",
                       style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => CreateAccountScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const CreateAccountScreen()));
                     },
-                    child: Text(
+                    child: const Text(
                       "Create an Account",
                       style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
           ],
         ),
       ),
@@ -159,18 +159,18 @@ class _LoginScreenState extends State<LoginScreen> {
       children: [
         Text(
           label,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
           textAlign: TextAlign.center,
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
         TextField(
           controller: controller,
           obscureText: obscureText,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
             filled: true,
             fillColor: Colors.grey[800], // Dark gray background for input field
-            border: OutlineInputBorder(),
+            border: const OutlineInputBorder(),
             hintText: hintText,
             hintStyle: TextStyle(color: Colors.grey[600]),
           ),
@@ -186,12 +186,12 @@ class _LoginScreenState extends State<LoginScreen> {
       // Navigate to welcome screen if login is successful
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Search()),
+        MaterialPageRoute(builder: (context) => const Search()),
       );
     } else {
       // Display error message if credentials are incorrect
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Invalid phone number or password. Please try again.'),
         ),
       );
