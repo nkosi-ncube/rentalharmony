@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:leaseleader/search.dart';
 import 'create_account_screen.dart';
-import 'welcome_screen.dart'; // Import the welcome screen
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -81,11 +82,23 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  _buildInputField(label: "NAME", hintText: "John Doe"),
+                  _buildInputField(
+                    label: "NAME",
+                    hintText: "John Doe",
+                  ),
                   SizedBox(height: 20),
-                  _buildInputField(label: "PHONENUMBER", hintText: "123-456-7890"),
+                  _buildInputField(
+                    label: "PHONENUMBER",
+                    hintText: "123-456-7890",
+                    controller: _phoneNumberController,
+                  ),
                   SizedBox(height: 20),
-                  _buildInputField(label: "PASSWORD", hintText: "********"),
+                  _buildInputField(
+                    label: "PASSWORD",
+                    hintText: "********",
+                    controller: _passwordController,
+                    obscureText: true,
+                  ),
                   SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
@@ -135,7 +148,12 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   // Method to build input fields
-  Widget _buildInputField({required String label, required String hintText}) {
+  Widget _buildInputField({
+    required String label,
+    required String hintText,
+    TextEditingController? controller,
+    bool obscureText = false,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -146,6 +164,8 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         SizedBox(height: 5),
         TextField(
+          controller: controller,
+          obscureText: obscureText,
           style: TextStyle(color: Colors.white),
           decoration: InputDecoration(
             filled: true,
@@ -162,11 +182,11 @@ class _LoginScreenState extends State<LoginScreen> {
   // Method to handle login
   void _login() {
     // Check if the provided credentials match the dummy credentials
-    if (_phoneNumberController.text == _dummyPhoneNumber && _passwordController.text == _dummyPassword) {
+    if (_phoneNumberController.text.trim() == _dummyPhoneNumber && _passwordController.text.trim() == _dummyPassword) {
       // Navigate to welcome screen if login is successful
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => WelcomeScreen()),
+        MaterialPageRoute(builder: (context) => Search()),
       );
     } else {
       // Display error message if credentials are incorrect
