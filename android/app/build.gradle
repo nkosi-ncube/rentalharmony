@@ -49,12 +49,13 @@ android {
     }
 
     signingConfigs {
-        release {
-            keyAlias localProperties['MYAPP_RELEASE_KEY_ALIAS']
-            keyPassword localProperties['MYAPP_RELEASE_KEY_PASSWORD']
-            storeFile file(localProperties['MYAPP_RELEASE_STORE_FILE'])
-            storePassword localProperties['MYAPP_RELEASE_STORE_PASSWORD']
+                release {
+            keyAlias 'myandroid-key'
+            keyPassword 'lomusa1990'
+            storeFile file('/home/wethinkcode/rentalharmony/android/app/myandroid-key.keystore')
+            storePassword 'lomusa1990'
         }
+
     }
 
     buildTypes {
