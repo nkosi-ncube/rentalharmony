@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "/home/nkosi/Desktop/leaseleader/linux"
+    "cmake.sourceDirectory": "/home/nkosi/Desktop/leaseleader/linux",
+    "java.configuration.updateBuildConfiguration": "automatic"
 }

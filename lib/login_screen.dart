@@ -84,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: <Widget>[
                   _buildInputField(
                     label: "NAME",
-                    hintText: "John Doe",
+                    hintText: "Evans Lekalakala",
                   ),
                   const SizedBox(height: 20),
                   _buildInputField(
